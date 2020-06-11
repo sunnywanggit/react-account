@@ -11,19 +11,8 @@ import {
 } from "react-router-dom";
 
 import Nav from './components/Nav'
+import Layout from 'components/Layout';
 
-const Wrapper = styled.div`
-  border:1px solid red;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-`;
-
-const Main = styled.div`
-  border:1px solid green;
-  flex-grow:1;
-`;
 
 
 
@@ -31,25 +20,20 @@ const Main = styled.div`
 function App() {
   return (
     <Router>
-      <Wrapper>
-        <Main>
-          <Switch>
-            <Route exact path="/">
-              <Tags />
-            </Route>
-            <Route path="/money">
-              <Money />
-            </Route>
-            <Route path="/statistics">
-              <Statistics />
-            </Route>
-            <Route path="*">
-              <NoMatch />
-            </Route>
-          </Switch>
-        </Main>
-        <Nav/>
-      </Wrapper>
+      <Switch>
+        <Route exact path="/tags">
+          <Tags />
+        </Route>
+        <Route path="/money">
+          <Money />
+        </Route>
+        <Route path="/statistics">
+          <Statistics />
+        </Route>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+      </Switch>
     </Router>
   );
 }
@@ -57,25 +41,25 @@ function App() {
 
 function Tags() {
   return (
-    <div>
+    <Layout>
       <h2>标签页</h2>
-    </div>
+    </Layout>
   );
 }
 
 function Money() {
   return (
-    <div>
+    <Layout>
       <h2>记账页</h2>
-    </div>
+    </Layout>
   );
 }
 
 function Statistics() {
   return (
-    <div>
+    <Layout>
       <h2>数据页</h2>
-    </div>
+    </Layout>
   );
 }
 
