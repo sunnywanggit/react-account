@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 import {
-    //hash 模式
-    // HashRouter as Router,
-    //history模式
-    // BrowserRouter as Router,
-    Link
-  } from "react-router-dom";
+  //hash 模式
+  // HashRouter as Router,
+  //history模式
+  // BrowserRouter as Router,
+  Link
+} from "react-router-dom";
 import React from "react";
+
+require('icons/money.svg')
+require('icons/tag.svg')
+require('icons/chart.svg')
+
 
 const NavWrapper = styled.div`
   flex-direction:row;
@@ -18,27 +23,44 @@ const NavWrapper = styled.div`
     >li{
       width:33.333%;
       text-align:center;
-      padding:16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:4px 0;
+      .icon{
+        width:24px;
+        height:24px;
+      }
     }
   }
 `;
 
-const Nav = ()=> {
-    return(
-        <NavWrapper>
-          <ul>
-            <li>
-              <Link to="/tags">标签页</Link>
-            </li>
-            <li>
-              <Link to="/money">记账页</Link>
-            </li>
-            <li>
-              <Link to="/statistics">数据页</Link>
-            </li>
-          </ul>
-        </NavWrapper>
-    )
+const Nav = () => {
+  return (
+    <NavWrapper>
+      <ul>
+        <li>
+          <svg className="icon">
+            <use xlinkHref="#money" />
+          </svg>
+          <Link to="/tags">标签页</Link>
+        </li>
+        <li>
+          <svg className="icon">
+            <use xlinkHref="#tag" />
+          </svg>
+          <Link to="/money">记账页</Link>
+        </li>
+        <li>
+          <svg className="icon">
+            <use xlinkHref="#chart" />
+          </svg>
+          <Link to="/statistics">数据页</Link>
+        </li>
+      </ul>
+    </NavWrapper>
+  )
 }
 
 export default Nav;
